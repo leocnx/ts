@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>      
+<!DOCTYPE generatorConfiguration      
+PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"      
+"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+	<context id="generatorTables" targetRuntime="MyBatis3">
+		<plugin type="org.mybatis.generator.plugins.MapperConfigPlugin">
+			<property name="fileName" value="mybatis-config.xml" />
+			<property name="targetPackage" value="/" />
+			<property name="targetProject" value="src/main/resources/mybatis" />
+		</plugin>
+
+		<!-- 此处是将 Example 改名为 Criteria 想改成什么都行 -->
+		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+			<property name="searchString" value="Example" />
+			<property name="replaceString" value="Criteria" />
+		</plugin>
+
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+
+		<!-- commentGenerator 去除自动生成的注释 -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+			<property name="suppressDate" value="true" />
+		</commentGenerator>
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://127.0.0.1:3306/demo" userId="root"
+			password="root">
+		</jdbcConnection>
+
+		<!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer true， 把 JDBC DECIMAL 
+			和 NUMERIC 类型解析为java.math.BigDecimal -->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- javaModelGenerator是模型的生成信息，这里将指定这些Java model类的生成路径； -->
+		<javaModelGenerator targetPackage="top.auok.cbps.ts.demo.model"
+			targetProject="src/test/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!-- sqlMapGenerator是mybatis 的sqlMapper XML文件的生成信息，包括生成路径等； 先生成xml，在生成java -->
+		<sqlMapGenerator targetPackage="top.auok.cbps.ts.demo.dao.mapping"
+			targetProject="src/test/java">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!-- javaClientGenerator是应用接口的生成信息； -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="top.auok.cbps.ts.demo.dao" targetProject="src/test/java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<!-- table是用户指定的被生成相关信息的表，它必须在指定的jdbc连接中已经被建立。?是否可以多个 -->
+
+		<table tableName="test" domainObjectName="Test"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<!-- <table tableName="adjustment" domainObjectName="Adjustment"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="adjustment_item" domainObjectName="AdjustmentItem"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="alipay_payment_notification" domainObjectName="AlipayPaymentNotification"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="alipay_refund_notification" domainObjectName="AlipayRefundNotification"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="bank" domainObjectName="Bank"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="billsummary" domainObjectName="Billsummary"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="commision" domainObjectName="Commision"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="commision_item" domainObjectName="CommisionItem"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="entry" domainObjectName="Entry"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="fundmanagement" domainObjectName="Fundmanagement"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="invoice" domainObjectName="Invoice"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="legal_person" domainObjectName="LegalPerson"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="mail" domainObjectName="Mail"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="merchant_accounts" domainObjectName="MerchantAccounts"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="mobile_captcha" domainObjectName="MobileCaptcha"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="notice" domainObjectName="Notice"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="notice_refundbill" domainObjectName="NoticeRefundbill"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="offer" domainObjectName="Offer"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="parameter" domainObjectName="Parameter"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="payment" domainObjectName="Payment"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="payment_invoice" domainObjectName="PaymentInvoice"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="payment_mapper" domainObjectName="PaymentMapper"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="paymentchannel" domainObjectName="Paymentchannel"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="product" domainObjectName="Product"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="rate" domainObjectName="Rate"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="rate_item" domainObjectName="RateItem"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="reconciliationlog" domainObjectName="Reconciliationlog"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="reconciliationstatement" domainObjectName="Reconciliationstatement"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="refund" domainObjectName="Refund"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="refund_bill" domainObjectName="RefundBill"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="restatementdoubtful" domainObjectName="Restatementdoubtful"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="settlement_bill" domainObjectName="SettlementBill"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="settlement_bill_item" domainObjectName="SettlementBillItem"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="transaction" domainObjectName="Transaction"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="unionpay_payment_notification"
+			domainObjectName="UnionpayPaymentNotification" enableCountByExample="true"
+			enableUpdateByExample="true" enableDeleteByExample="true"
+			enableSelectByExample="true" selectByExampleQueryId="true"></table>
+
+		<table tableName="unionpay_refund_notification"
+			domainObjectName="UnionpayRefundNotification" enableCountByExample="true"
+			enableUpdateByExample="true" enableDeleteByExample="true"
+			enableSelectByExample="true" selectByExampleQueryId="true"></table>
+
+		<table tableName="unsettled_bill" domainObjectName="UnsettledBill"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="withdrawal_application" domainObjectName="WithdrawalApplication"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="wxpay_order_info" domainObjectName="WxpayOrderInfo"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="wxpay_payment_notification" domainObjectName="WxpayPaymentNotification"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="wxpay_query_payment" domainObjectName="WxpayQueryPayment"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table>
+
+		<table tableName="wxpay_query_refund" domainObjectName="WxpayQueryRefund"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true"></table> -->
+
+	</context>
+</generatorConfiguration>
+
+<!-- mybatis-generator:generate 执行命令 -->
